@@ -14,7 +14,7 @@ function uploadFile() {
       formData.append('file', file);
 
       try {
-        const response = await fetch('http://localhost:3000/upload', {
+        const response = await fetch('https://pleaseowrk.onrender.com/upload', {
           method: 'POST',
           body: formData
         });
