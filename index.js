@@ -36,6 +36,7 @@ function uploadFile() {
     }
 
     renderFiles(filesData);
+    console.log('Upload result:', result);
   };
 
   input.click();
