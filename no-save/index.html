@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>files</title>
+</head>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #3a3a3a;
+    color: #333;
+    padding: 20px;
+  }
+  #uploader {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  #zipper {
+    padding: 10px 15px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  h1 {
+    color: #4CAF50;
+  }
+  button:hover {
+    background-color: #45a049;
+  }
+  .file {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #1b1b1b;
+    border-radius: 5px;
+  }
+  strong {
+    color: #c3c3c3;
+  }
+</style>
+<body>
+  <h1>netli-file</h1>
+  <button onclick="uploadFile()" id="uploader">Upload</button>
+  <button onclick="zip()" id="zipper">Download all (.ZIP)</button>
+  <div id="list">
+    <!-- this where files go lol -->
+  </div>
+
+  <script>
+    alert("This page does not save, meaning it is a personal space for files as long as the tab is open...")
+    function uploadFile() {
+  const input = document.createElement('input');
+  input.type = 'file';
+
+  input.onchange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const fileList = document.getElementById('list');
+
+      const fileItem = document.createElement('div');
+      fileItem.className = 'file';
+      fileItem.innerHTML = `
+        <strong>${file.name}</strong> - ${(file.size / 1024).toFixed(2)} KB
+      `;
+
+      const downloadLink = document.createElement('a');
+      downloadLink.href = URL.createObjectURL(file);
+      downloadLink.download = file.name;
+      downloadLink.innerText = 'Download';
+      fileItem.appendChild(downloadLink);
+
+      // Add to top instead of bottom
+      fileList.insertBefore(fileItem, fileList.firstChild);
+    }
+  };
+
+  input.click();
+}
+
+
+    //zip lol
+
+    function zip() {
+        alert("idfk how to i aint no big brain i have 87 iq lol 👄");
+    }
+  </script>
+</body>
+</html>

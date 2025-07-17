@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>files</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>netli-file</h1>
+  <button onclick="uploadFile()" id="uploader">Upload</button>
+  <div class="dropdown">
+    <button class="dropdown-button">Sort Files</button>
+    <div class="dropdown-content">
+      <a onclick="sortFiles('oldest')">Oldest</a>
+      <a onclick="sortFiles('newest')">Newest</a>
+      <a onclick="sortFiles('largest')">Largest</a>
+    </div>
+  </div>
+  <button onclick="zip()" id="zipper">Download all (.ZIP)</button>
+  <div id="list"></div>
+  <script src="index.js"></script>
+</body>
+</html>
