@@ -20,7 +20,7 @@ function uploadFile() {
         });
         const result = await response.json();
 
-        if (result.success) {
+        if (result.url) {
           filesData.push({
             name: result.name,
             size: file.size,
@@ -29,11 +29,14 @@ function uploadFile() {
           });
         }
       } catch (err) {
-        console.error('Upload failed', err);
+        console.error('Upload failed:', err.message);
+  console.error(err.stack); // optional: full error trace
+  res.status(500).json({ error: 'Upload failed', details: err.message });
       }
     }
 
     renderFiles(filesData);
+    console.log('Upload result:', result);
   };
 
   input.click();
